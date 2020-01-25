@@ -199,15 +199,12 @@ i Do Hacking, CaptureTheFlag🏁, Malware Hunting such as Binary Analysis && Rev
   
 
      
-
-
-      </div>
+</div>
     </main><footer class="site-footer">
-        <center> <script src="https://www.hackthebox.eu/badge/153393"></script> </center>
+	<center> <script src="https://www.hackthebox.eu/badge/153393"></script> </center>
   <div class="wrapper">
-
-
-    <input type="checkbox" class="dn" id="theme-toggle" onclick="modeSwitcher()" checked />
+<div class="toggleWrapper">
+    <input type="checkbox" class="dn" id="theme-toggle" onclick="modeSwitcher()" checked>
     <label for="theme-toggle" class="toggle">
     <span class="toggle__handler">
       <span class="crater crater--1"></span>
@@ -223,55 +220,62 @@ i Do Hacking, CaptureTheFlag🏁, Malware Hunting such as Binary Analysis && Rev
     </label>
 </div>
 <script type="text/javascript">
-const theme = localStorage.getItem('theme');
-if (theme === 'undefined') {
-   theme = "dark";
+if (localStorage.getItem("theme") === null) {
+    window.localStorage.setItem('theme', 'dark');
 }
+const theme = localStorage.getItem('theme');
 if (theme === "dark") {
 	document.documentElement.setAttribute('data-theme', 'dark');
-} else {
-    document.documentElement.setAttribute('data-theme', 'light');
 }
 const userPrefers = getComputedStyle(document.documentElement).getPropertyValue('content');
 
-function activateDarkTheme() {
+if (theme === "dark") {
     document.getElementById('theme-toggle').checked = true;
     document.documentElement.setAttribute('data-theme', 'dark');
     document.documentElement.classList.add('theme--dark');
     document.documentElement.classList.remove('theme--light');
 	document.getElementById("theme-toggle").className = 'light';
-	window.localStorage.setItem('theme', 'dark');
-}
-
-function activateLightTheme() {
+} else if (theme === "light") {
     document.getElementById('theme-toggle').checked = false;
     document.documentElement.setAttribute('data-theme', 'light');
     document.documentElement.classList.add('theme--light');
     document.documentElement.classList.remove('theme--dark');
 	document.getElementById("theme-toggle").className = 'dark';
-	window.localStorage.setItem('theme', 'light');
-}
-
-if (theme === "dark") {
-    activateDarkTheme();
-} else if (theme === "light") {
-    activateLightTheme();
-} else if  (userPrefers === "light") {
-    activateDarkTheme();
+} else if  (userPrefers === "dark") {
+    document.getElementById('theme-toggle').checked = false;
+    document.documentElement.setAttribute('data-theme', 'dark');
+	document.documentElement.classList.add('theme--dark');
+    document.documentElement.classList.remove('theme--light');
+	window.localStorage.setItem('theme', 'dark');
+	document.getElementById("theme-toggle").className = 'light';
 } else {
-    activateDarkTheme();
+    document.getElementById('theme-toggle').checked = true;
+    document.documentElement.setAttribute('data-theme', 'light');
+	document.documentElement.classList.add('theme--light');
+    document.documentElement.classList.remove('theme--dark');
+	window.localStorage.setItem('theme', 'light');
+	document.getElementById("theme-toggle").className = 'dark';
 }
 
 function modeSwitcher() {
 	let currentMode = document.documentElement.getAttribute('data-theme');
 	if (currentMode === "dark") {
-	    activateLightTheme();
+	    document.documentElement.setAttribute('data-theme', 'light');
+		document.documentElement.classList.add('theme--light');
+        document.documentElement.classList.remove('theme--dark');
+		window.localStorage.setItem('theme', 'light');
+	    document.getElementById("theme-toggle").className = 'dark';
 	} else {
-	    activateDarkTheme();
+	    document.documentElement.setAttribute('data-theme', 'dark');
+		document.documentElement.classList.add('theme--dark');
+        document.documentElement.classList.remove('theme--light');
+		window.localStorage.setItem('theme', 'dark');
+	    document.getElementById("theme-toggle").className = 'light';
 	}
 }
-</script></div>
-  </div>
+</script>
+</div>
+  
 </footer>
 
 
