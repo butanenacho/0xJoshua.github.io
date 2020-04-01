@@ -1,6 +1,6 @@
 title: dash
 author: GitHub User
-email: joshuaescaro@protonmail.com
+email: miguel-gonzalez@gmx.de
 description: > # this means to ignore newlines until "show_exerpts:"
   Write an awesome description for your new site here. You can edit this
   line in _config.yml. It will appear in your document head meta (for
@@ -20,23 +20,23 @@ dash:
   date_format: "%b %-d, %Y"
 
   disqus:
-    shortname: 0xJoshua-github-io
+    shortname: bitbrain-github-io
 
   # generate social links in footer
   # supported colors: green, red, orange, blue, cyan, pink, teal, yellow, indigo, purple
   social_links:
-    - url: 
+    - url: https://twitter.com/bitbrain_
       icon: twitter-square
-      color: purple
-    - url: https://0xJoshua.github.io
+      color: cyan
+    - url: https://bitbrain.itch.io
       icon: itch-io
       color: red
-    - url: https://github.com/0xJoshua
+    - url: https://github.com/bitbrain
       icon: github-square
       color: purple
 
 # Build settings
-theme: jekyll-theme-hacker
+theme: jekyll-dash
 
 plugins:
  - jekyll-feed
@@ -44,6 +44,3 @@ plugins:
  - jekyll-paginate
  - liquid-md5
  - jekyll/tagging
-
-- name: Automatic Revert
-  uses: srt32/revert@v0.0.1
